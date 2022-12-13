@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "Rolezn",
+  "risk": "2",
+  "title": "No storage gap for upgradeable contract might lead to storage slot collision",
+  "issueId": 15,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/15"
+}
