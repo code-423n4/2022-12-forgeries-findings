@@ -1,7 +1,4 @@
-# Use a locked pragma version
-# Use same pragma version acrooss all contracts
-
-# Unnecesary initializer modifier on constructor on `VRFNFTRandomDraw.sol`
+# Unnecessary initializer modifier on constructor on `VRFNFTRandomDraw.sol`
 
 `initializer` is not necessary at construction time since the constructor is being called just once.
 
