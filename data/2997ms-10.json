@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "2997ms",
+  "risk": "2",
+  "title": "Usage of transferFrom is discouraged, use safeTransferFrom whenever possible. ",
+  "issueId": 10,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/10"
+}
