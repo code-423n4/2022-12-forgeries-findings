@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "orion",
+  "risk": "2",
+  "title": "VRFNFTRandomDraw contract can have issues to work properly",
+  "issueId": 16,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/16"
+}
