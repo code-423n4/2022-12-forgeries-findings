@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "Tony_banks",
+  "risk": "3",
+  "title": "Lack of Access Control in VRFNFTRandomDrawFactory Contract",
+  "issueId": 29,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/29"
+}
