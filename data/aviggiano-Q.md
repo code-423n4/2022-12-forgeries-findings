@@ -25,3 +25,40 @@ index 668bc56..3166545 100644
      /// @notice Reference to chain-specific coordinator contract
 
 ```
+
+# 2. Include `owner` on initialization events so that they can be matched with finalizing events
+
+The current code emits an `event InitializedDraw(address indexed sender, Settings settings)`, but does not include the `owner` in its signature, while `event OwnerReclaimedNFT(address indexed owner)`, for example, contains it. It is possible that the `sender` is not the same as the `owner`, so dApps watching for these logs would be unable to match the initialization/finalization of a raffle. In addition, the event parameter names can be changed from `sender` to `owner` to indicate in each case that the address belongs to the raffle owner.
+
+```diff
+diff --git a/src/VRFNFTRandomDraw.sol b/src/VRFNFTRandomDraw.sol
+index 668bc56..26e1abd 100644
+--- a/src/VRFNFTRandomDraw.sol
++++ b/src/VRFNFTRandomDraw.sol
+@@ -120,7 +120,7 @@ contract VRFNFTRandomDraw is
+         __Ownable_init(admin);
+ 
+         // Emit initialized event for indexing
+-        emit InitializedDraw(msg.sender, settings);
++        emit InitializedDraw(msg.sender, admin, settings);
+ 
+         // Get owner of raffled tokenId and ensure the current owner is the admin
+         try
+diff --git a/src/interfaces/IVRFNFTRandomDraw.sol b/src/interfaces/IVRFNFTRandomDraw.sol
+index 4775288..8f70ed7 100644
+--- a/src/interfaces/IVRFNFTRandomDraw.sol
++++ b/src/interfaces/IVRFNFTRandomDraw.sol
+@@ -40,9 +40,9 @@ interface IVRFNFTRandomDraw {
+     error WRONG_LENGTH_FOR_RANDOM_WORDS();
+ 
+     /// @notice When the draw is initialized
+-    event InitializedDraw(address indexed sender, Settings settings);
++    event InitializedDraw(address indexed sender, address indexed owner, Settings settings);
+     /// @notice When the draw is setup
+-    event SetupDraw(address indexed sender, Settings settings);
++    event SetupDraw(address indexed owner, Settings settings);
+     /// @notice When the owner reclaims nft aftr recovery time delay
+     event OwnerReclaimedNFT(address indexed owner);
+     /// @notice Dice roll is complete from callback
+
+```
