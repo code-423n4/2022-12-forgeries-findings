@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "Tony_banks",
+  "risk": "3",
+  "title": "unchecked VRFCoordinatorV2Interface contract manipulation",
+  "issueId": 61,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/61"
+}
