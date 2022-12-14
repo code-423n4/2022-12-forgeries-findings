@@ -24,3 +24,16 @@ function getRequestDetails()
         drawTimelock = req.drawTimelock;
     }
 ```
+
+G4: https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L80
+Moving this line (effects) to the last line of the ``initialize`` function can save gas. 
+
+G5: https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/interfaces/IVRFNFTRandomDraw.sol#L65
+Using 1 to encode false and 2 to encode true will save gas since changing from zero to non-zero is more expensive
+
+G6. https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L126-L137
+Simplifying the try-catch stmt can save gas; see below:
+```
+if(IERC721EnumerableUpgradeable(_settings.token).ownerOf(_settings.tokenId) != admin) revert DOES_NOT_OWN_NFT();
+```
+
