@@ -36,4 +36,6 @@ Simplifying the try-catch stmt can save gas; see below:
 ```
 if(IERC721EnumerableUpgradeable(_settings.token).ownerOf(_settings.tokenId) != admin) revert DOES_NOT_OWN_NFT();
 ```
+G7. https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L26
+Changing it to private can save gas
 
