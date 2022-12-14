@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "yixxas",
+  "risk": "2",
+  "title": "Missing gap in our custom implementation of `OwnableUpgradeable`",
+  "issueId": 93,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/93"
+}
