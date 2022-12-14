@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "yixxas",
+  "risk": "3",
+  "title": "`initialize()` cannot be called in both `VRFNFTRandomDraw.sol` and `VRFNFTRandomDrawFactory.sol`",
+  "issueId": 90,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/90"
+}
