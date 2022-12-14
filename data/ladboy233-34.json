@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "ladboy233",
+  "risk": "2",
+  "title": "Owner can require randomness seed multiple times before the previous random request is settled.",
+  "issueId": 34,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/34"
+}
