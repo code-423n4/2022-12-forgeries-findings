@@ -4,3 +4,23 @@ These checks can be deleted to save gas since in Line 144, we have checked ``req
 G2. https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L175-L177
 Checking ``request.currentChainlinkRequestId != 0`` can be eliminated here since the following call ``_requestRoll()`` will check this condition anway in its body. There is no need to check the same condition twice. 
 
+G3. https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L58
+Caching state variable ``request`` can save gas
+```
+function getRequestDetails()
+        external
+        view
+        returns (
+            uint256 currentChainlinkRequestId,
+            bool hasChosenRandomNumber,
+            uint256 drawTimelock
+        )
+    {
+       IVRFNFTRandomDraw.CurrentRequest memory req = request;
+
+ 
+        currentChainlinkRequestId = req.currentChainlinkRequestId;
+        hasChosenRandomNumber = req.hasChosenRandomNumber;
+        drawTimelock = req.drawTimelock;
+    }
+```
