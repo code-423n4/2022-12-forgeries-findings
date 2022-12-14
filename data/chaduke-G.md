@@ -39,3 +39,10 @@ if(IERC721EnumerableUpgradeable(_settings.token).ownerOf(_settings.tokenId) != a
 G7. https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L26
 Changing it to private can save gas
 
+G8 https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L112-L117
+Eliminating the first condition can save gas since the second condition + the underflow check by safe math introduced by solidity > 0.8.0 is sufficient to cover condition 1
+```
+if ( _settings.drawingTokenEndId - _settings.drawingTokenStartId < 2 ) 
+            revert DRAWING_TOKEN_RANGE_INVALID();
+
+```
