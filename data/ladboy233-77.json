@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "ladboy233",
+  "risk": "2",
+  "title": "User can frontrun the fullfillRandomWord transaction to know the winner before anyone else and then purchase the drawing token to be the winner",
+  "issueId": 77,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/77"
+}
