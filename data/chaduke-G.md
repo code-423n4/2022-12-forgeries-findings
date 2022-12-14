@@ -46,3 +46,6 @@ if ( _settings.drawingTokenEndId - _settings.drawingTokenStartId < 2 )
             revert DRAWING_TOKEN_RANGE_INVALID();
 
 ```
+
+G9. https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L230-L233
+Caching ``setting`` can save gas for this function. 
