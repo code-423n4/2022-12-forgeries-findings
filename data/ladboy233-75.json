@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "ladboy233",
+  "risk": "2",
+  "title": "Protocol functionality becomes very limited if chainlink VRF infrastructure malfunctioning or down",
+  "issueId": 75,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/75"
+}
