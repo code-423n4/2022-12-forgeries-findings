@@ -61,4 +61,17 @@
             ...
         }
 
-- 
+- emit events at the end of the functions to save gas on reverts, the following are the instances:
+
+        emit InitializedDraw(msg.sender, settings);
+
+        emit SetupDraw(msg.sender, settings);
+
+        emit WinnerSentNFT(
+            user,
+            address(settings.token),
+            settings.tokenId,
+            settings
+        );
+
+        emit OwnerReclaimedNFT(owner());
