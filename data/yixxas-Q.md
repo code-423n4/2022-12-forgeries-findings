@@ -26,4 +26,4 @@ https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edf
 We are using try-catch all errors but this is not recommended as a call to `transferFrom` or `ownerOf` can fail for all sorts of reason, but we always revert with the same kind of error. This can make it difficult to figure out the exact issue when a call fails.
 
 ## Recommended
-I recommend using the if-revert pattern instead to do the revert. This way, we are able to see the revert errors that are returned by the external calls.
+I recommend using the if-revert pattern instead to do the revert. This way, we are able to see the revert errors that are returned by the calls to other contracts.
