@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "Soosh",
+  "risk": "2",
+  "title": "Admin does not have to wait to call `lastResortTimelockOwnerClaimNFT()`",
+  "issueId": 146,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/146"
+}
