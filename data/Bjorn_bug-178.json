@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "Bjorn_bug",
+  "risk": "2",
+  "title": "The owner of the contract can claim the NFT as a winner at the function winnerClaimNFT()",
+  "issueId": 178,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/178"
+}
