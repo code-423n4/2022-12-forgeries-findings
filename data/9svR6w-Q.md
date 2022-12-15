@@ -10,3 +10,12 @@ https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edf
 https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L203
 - Recommend that `redraw()` emit an event like `startDraw()` does so users will be aware the raffle is being re-run.
 
+https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L294
+- typo in comment
+
+https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L295
+- recommend using IERC721 `safeTransferFrom()`
+
+https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L315
+- recommend using IERC721 `safeTransferFrom()`
+
