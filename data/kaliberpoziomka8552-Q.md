@@ -1,0 +1,4 @@
+### Incorrect comment in `initialize(...)` function
+The [comment in line 111](https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L111) states that the range of token ids must be at least `2`. However the check [`_settings.drawingTokenEndId - _settings.drawingTokenStartId < 2`](https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L114) requires the size of range to be at least equal `4`. Example:
+- token ids: [1,2], size of range is `2`, however difference is `1`
+- token ids: [1,2,3,4], size of range is `4`, however difference between end id and start id is `3` which is higher than `2`
