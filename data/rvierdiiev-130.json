@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "rvierdiiev",
+  "risk": "2",
+  "title": "VRFNFTRandomDraw callbackGasLimit and minimumRequestConfirmations variables should be adjustable",
+  "issueId": 130,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/130"
+}
