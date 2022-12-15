@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "Soosh",
+  "risk": "2",
+  "title": "`drawingToken` is not checked for ERC721 compliance",
+  "issueId": 144,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/144"
+}
