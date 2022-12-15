@@ -103,31 +103,67 @@ main/src/VRFNFTRandomDraw.sol: [126](https://github.com/code-423n4/2022-12-forge
          return request.currentChainlinkRequestId;
 ```
 
+# [G-03] USE INTERNAL FUNCTIONS INSTEAD OF MODIFIERS
+
+main/src/ownable/OwnableUpgradeable.sol: [24](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/ownable/OwnableUpgradeable.sol#L24), [36](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/ownable/OwnableUpgradeable.sol#L36), [44](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/ownable/OwnableUpgradeable.sol#L44)
+
+```diff
+-    modifier notZeroAddress(address check) {
++    function notZeroAddress(address check) internal {
+         if (check == address(0)) {
+             revert OWNER_CANNOT_BE_ZERO_ADDRESS();
+         }
+-        _;
+     }
+ 
+     ///                                                          ///
+@@ -33,19 +32,17 @@ abstract contract OwnableUpgradeable is IOwnableUpgradeable, Initializable {
+     ///                                                          ///
+ 
+     /// @dev Ensures the caller is the owner
+-    modifier onlyOwner() {
++    function onlyOwner() internal {
+         if (msg.sender != _owner) {
+             revert ONLY_OWNER();
+         }
+-        _;
+     }
+ 
+     /// @dev Ensures the caller is the pending owner
+-    modifier onlyPendingOwner() {
++    function onlyPendingOwner() internal {
+         if (msg.sender != _pendingOwner) {
+             revert ONLY_PENDING_OWNER();
+         }
+-        _;
+     }
+```
+
 ## OVERALL GAS REPORT DIFF
 
-```Test result: ok. 13 passed; 0 failed; finished in 6.54ms
-test_CancelsOwnershipTransfer() (gas: 0 (0.000%)) 
-test_GatedOnlyAdmin() (gas: 0 (0.000%)) 
-test_NotTransferOwnershipZero() (gas: 0 (0.000%)) 
-test_OwnershipSetup() (gas: 0 (0.000%)) 
-test_PendingThenTransfer() (gas: 0 (0.000%)) 
-test_ResignOwnership() (gas: 0 (0.000%)) 
-test_SafeTransferOwnership() (gas: 0 (0.000%)) 
-test_TransferOwnershipSimple() (gas: 0 (0.000%)) 
-testFactoryAttemptsToSetupChildContract() (gas: 0 (0.000%)) 
-testFactoryDoesNotAllowZeroAddressInitalization() (gas: 0 (0.000%)) 
-testFactoryInitializeConstructor() (gas: 0 (0.000%)) 
-testFactoryInitializeProxy() (gas: 0 (0.000%)) 
-testFactoryUpgrade() (gas: 0 (0.000%)) 
-testFactoryVersion() (gas: 0 (0.000%)) 
-test_LoserCannotWithdraw() (gas: -821 (-0.027%)) 
-test_DrawingUserCheck() (gas: -818 (-0.091%)) 
-test_ValidateRequestID() (gas: -821 (-0.093%)) 
-test_FullDrawing() (gas: -821 (-0.094%)) 
-test_Version() (gas: -821 (-0.264%)) 
-test_CannotRerollInFlight() (gas: -88319 (-9.588%)) 
-test_NFTNotApproved() (gas: -88319 (-11.120%)) 
-test_TokenNotApproved() (gas: -88319 (-18.784%)) 
+```
+test_LoserCannotWithdraw() (gas: -758 (-0.025%)) 
+testFactoryDoesNotAllowZeroAddressInitalization() (gas: -40 (-0.067%)) 
+test_DrawingUserCheck() (gas: -698 (-0.078%)) 
+test_ValidateRequestID() (gas: -773 (-0.088%)) 
+test_FullDrawing() (gas: -773 (-0.088%)) 
+test_ResignOwnership() (gas: 24 (0.118%)) 
+test_SafeTransferOwnership() (gas: 51 (0.145%)) 
+test_OwnershipSetup() (gas: 24 (0.176%)) 
+test_CancelsOwnershipTransfer() (gas: 57 (0.184%)) 
+test_TransferOwnershipSimple() (gas: 48 (0.204%)) 
+test_PendingThenTransfer() (gas: 76 (0.227%)) 
+test_GatedOnlyAdmin() (gas: 39 (0.239%)) 
+test_Version() (gas: -797 (-0.256%)) 
+test_NotTransferOwnershipZero() (gas: 190 (1.115%)) 
+testFactoryAttemptsToSetupChildContract() (gas: -40856 (-3.023%)) 
+testFactoryInitializeProxy() (gas: -40856 (-3.139%)) 
+testFactoryUpgrade() (gas: -122460 (-3.518%)) 
+testFactoryInitializeConstructor() (gas: -40880 (-3.783%)) 
+testFactoryVersion() (gas: -40880 (-3.798%)) 
+test_CannotRerollInFlight() (gas: -88223 (-9.577%)) 
+test_NFTNotApproved() (gas: -88271 (-11.114%)) 
+test_TokenNotApproved() (gas: -88271 (-18.774%)) 
 test_InvalidOptionTime() (gas: -139774 (-38.555%)) 
 test_ZeroTokenContract() (gas: -59858 (-42.329%)) 
 test_BadDrawingRange() (gas: -119558 (-43.082%)) 
@@ -135,7 +171,7 @@ test_InvalidRecoverTimelock() (gas: -59858 (-43.378%))
 test_NoTokenOwner() (gas: -126217 (-58.123%)) 
 ```
 ```
-Overall gas change: -774324 (-265.528%)
+Overall gas change: -1059292 (-280.387%)
 ```
 
 
