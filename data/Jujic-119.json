@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "Jujic",
+  "risk": "2",
+  "title": "Randomness provider can potentially not be upgraded",
+  "issueId": 119,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/119"
+}
