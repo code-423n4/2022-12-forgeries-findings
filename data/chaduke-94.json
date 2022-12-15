@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "chaduke",
+  "risk": "3",
+  "title": "Lack of checking if the admin actually owns some of the drawing NFTs.",
+  "issueId": 94,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/94"
+}
