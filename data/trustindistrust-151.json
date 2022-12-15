@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "trustindistrust",
+  "risk": "3",
+  "title": "Transfer of ownership of a given `VRFNFTRandomDraw` entitles new owner to previous owner's subscription, or may brick the raffle",
+  "issueId": 151,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/151"
+}
