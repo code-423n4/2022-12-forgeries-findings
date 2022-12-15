@@ -1,0 +1,6 @@
+### Opportunity to save gas by removing a redundant check
+The function `_requestRoll(...)` checks if `request.currentChainlinkRequestId != 0` and reverts if expression resolves to `true`. However this check in `_requestRoll(...)` is redundant. The function `_requestRoll(...)` is called in two other functions: `startDraw(...)` and `redraw(...)`. In `startDraw(...)` the same check `request.currentChainlinkRequestId != 0` is done before calling `_requestRoll(...)`. In `redraw(...)` before calling `_requestRoll(...)` the `request` is deleted, so check in `_requestRoll(...)` is redundant since it all members of this struct will be `0`.
+
+### Utilizing warm access may save substantial amount of gas
+Cold access of state variables like `settings` and `request` consumes a lot of gas (2100) where warm access much less (100). If values of those variables are used only for read, it is better to cache them in function memory. Example of caching in function is presented below:
+`IVRFNFTRandomDraw.Settings memory _settings = settings;`
