@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "CRYP70",
+  "risk": "2",
+  "title": "`safeTransferFrom` Should Be Used Instead of `transferFrom` to Prevent Users From Losing Tokens",
+  "issueId": 115,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/115"
+}
