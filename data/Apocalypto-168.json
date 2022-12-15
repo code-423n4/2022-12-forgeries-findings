@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "Apocalypto",
+  "risk": "2",
+  "title": "Incorrect value of MONTH_IN_SECONDS set to 30 weeks instead of 30 days",
+  "issueId": 168,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/168"
+}
