@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "nadin",
+  "risk": "2",
+  "title": "[M-01] Uninitialized local variables",
+  "issueId": 125,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/125"
+}
