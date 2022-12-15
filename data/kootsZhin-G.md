@@ -28,26 +28,6 @@ uint256 immutable MONTH_IN_SECONDS = (3600 * 24 * 7) * 30;
 
 Before: (with `immutable`)
 ```
-Running 8 tests for test/OwnableTest.t.sol:OwnableTest
-[PASS] test_CancelsOwnershipTransfer() (gas: 30899)
-[PASS] test_GatedOnlyAdmin() (gas: 16327)
-[PASS] test_NotTransferOwnershipZero() (gas: 17038)
-[PASS] test_OwnershipSetup() (gas: 13651)
-[PASS] test_PendingThenTransfer() (gas: 33414)
-[PASS] test_ResignOwnership() (gas: 20388)
-[PASS] test_SafeTransferOwnership() (gas: 35099)
-[PASS] test_TransferOwnershipSimple() (gas: 23509)
-Test result: ok. 8 passed; 0 failed; finished in 1.08ms
-
-Running 6 tests for test/VRFNFTRandomDrawFactory.t.sol:VRFNFTRandomDrawFactoryTest
-[PASS] testFactoryAttemptsToSetupChildContract() (gas: 1351340)
-[PASS] testFactoryDoesNotAllowZeroAddressInitalization() (gas: 59265)
-[PASS] testFactoryInitializeConstructor() (gas: 1080626)
-[PASS] testFactoryInitializeProxy() (gas: 1301480)
-[PASS] testFactoryUpgrade() (gas: 3480687)
-[PASS] testFactoryVersion() (gas: 1076377)
-Test result: ok. 6 passed; 0 failed; finished in 1.24ms
-
 Running 13 tests for test/VRFNFTRandomDraw.t.sol:VRFNFTRandomDrawTest
 [PASS] test_BadDrawingRange() (gas: 277512)
 [PASS] test_CannotRerollInFlight() (gas: 921174)
@@ -67,26 +47,6 @@ Test result: ok. 13 passed; 0 failed; finished in 3.94ms
 
 After (with `private constant`)
 ```
-Running 8 tests for test/OwnableTest.t.sol:OwnableTest
-[PASS] test_CancelsOwnershipTransfer() (gas: 30899)
-[PASS] test_GatedOnlyAdmin() (gas: 16327)
-[PASS] test_NotTransferOwnershipZero() (gas: 17038)
-[PASS] test_OwnershipSetup() (gas: 13651)
-[PASS] test_PendingThenTransfer() (gas: 33414)
-[PASS] test_ResignOwnership() (gas: 20388)
-[PASS] test_SafeTransferOwnership() (gas: 35099)
-[PASS] test_TransferOwnershipSimple() (gas: 23509)
-Test result: ok. 8 passed; 0 failed; finished in 917.94µs
-
-Running 6 tests for test/VRFNFTRandomDrawFactory.t.sol:VRFNFTRandomDrawFactoryTest
-[PASS] testFactoryAttemptsToSetupChildContract() (gas: 1351340)
-[PASS] testFactoryDoesNotAllowZeroAddressInitalization() (gas: 59265)
-[PASS] testFactoryInitializeConstructor() (gas: 1080626)
-[PASS] testFactoryInitializeProxy() (gas: 1301480)
-[PASS] testFactoryUpgrade() (gas: 3480687)
-[PASS] testFactoryVersion() (gas: 1076377)
-Test result: ok. 6 passed; 0 failed; finished in 1.11ms
-
 Running 13 tests for test/VRFNFTRandomDraw.t.sol:VRFNFTRandomDrawTest
 [PASS] test_BadDrawingRange() (gas: 277512)
 [PASS] test_CannotRerollInFlight() (gas: 921138)
