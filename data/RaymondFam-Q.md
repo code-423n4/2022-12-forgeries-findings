@@ -8,11 +8,24 @@ Solidity contracts can use a special form of comments, i.e., the Ethereum Natura
 
 https://docs.soliditylang.org/en/v0.8.16/natspec-format.html
 
-Here are some of the contract instances partially lacking NatSpec:
+Here are the instances with missing NatSpec:
 
 [File: Version.sol](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/utils/Version.sol)
 
-## No Storage Gap for Upgradeable Contracts
+```
+5:  uint32 private immutable __version;
+
+13:  constructor(uint32 version) {
+```
+[File: VRFNFTRandomDrawFactory.sol#L31-L34](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDrawFactory.sol#L31-L34)
+
+```
+    function initialize(address _initialOwner) initializer external {
+        __Ownable_init(_initialOwner);
+        emit SetupFactory();
+    }
+```
+## No storage gap for upgradeable contracts
 Consider adding a storage gap at the end of an upgradeable contract, just in case it would entail some child contracts in the future. This would ensure no shifting down of storage in the inheritance chain.
 
 Here is the contract instance entailed:
@@ -22,7 +35,7 @@ Here is the contract instance entailed:
 ```diff
 + uint256[50] private __gap;
 ```
-## Add a Constructor Initializer
+## Openzeppellin-upgrades-unsafe-allow constructor
 As per Openzeppelin's recommendation:
 
 https://forum.openzeppelin.com/t/uupsupgradeable-vulnerability-post-mortem/15680/6
@@ -45,4 +58,26 @@ For instance, consider having the constructor instance below refactored as follo
         }
         implementation = _implementation;
     }
+```
+## Empty Code Blocks
+Empty code blocks should be commented with reason(s) for the emptiness, and/or emit an event or revert upon function calling. If not, it should be removed from the contract.
+
+Here is an instance entailed:
+
+[File: VRFNFTRandomDrawFactory.sol#L55-L59](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDrawFactory.sol#L55-L59)
+
+```
+    function _authorizeUpgrade(address newImplementation)
+        internal
+        override
+        onlyOwner
+    {}
+```
+## Empty events
+Logs and events in Solidity are an important part of smart contract development —and critical infrastructure for each project. The following event has no parameter in it although some of the standard global parameters like block.timestamp, block.number etc would still entail along with the emission. Consider refactoring it by adding in some relevant and useful parameters.
+
+[File: VRFNFTRandomDrawFactory.sol#L33](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDrawFactory.sol#L33)
+
+```
+33:        emit SetupFactory();
 ```
