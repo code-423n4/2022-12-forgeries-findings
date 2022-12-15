@@ -7,7 +7,7 @@
 https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L271 
 https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L295 
 https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L315
-This casts to IERC721EnumerableUpgradeable is confusing, since we are not actually call any Enumerable logic (and if we tried, we would fail for many collections, including BAYC). It's better to cast to IERC721
+This casts to `IERC721EnumerableUpgradeable` is confusing, since we are not actually call any Enumerable logic (and if we tried, we would fail for many collections, including BAYC). It's better to cast to IERC721
 
 3) https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L149-L156
 Redundant code. `_requestRoll()` is called either right after `delete request`, or in `startDraw` function when `request` variable are not initialized. Therefore `request.hasChosenRandomNumber` would always be false.
