@@ -1,14 +1,14 @@
-# [L-01] EXPLICITLY LABEL THE VISIBILITY OF STATE VARIABLES
+# [Q-01] EXPLICITLY LABEL THE VISIBILITY OF STATE VARIABLES
 
 Labeling the visibility explicitly will improve code quality and will make it easier to catch incorrect assumptions about who can access the variable.
 
 contracts/VRFNFTRandomDraw: [L22](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L22), [L24](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L24), [L26](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L26), [L29](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L29), [L31](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L31), [L33](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L33), [L37](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L37)
 
-# [L-02] MISSING FORWARD SLASH SYMBOL IN NATSPEC FORMAT DOCUMENTATION
+# [Q-02] MISSING FORWARD SLASH SYMBOL IN NATSPEC FORMAT DOCUMENTATION
 
 contracts/VRFNFTRandomDraw: [L32](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L32)
 
-# [L-03] USE CONSTANT INSTEAD OF IMMUTABLE
+# [Q-03] USE CONSTANT INSTEAD OF IMMUTABLE
 
 In ```VRFNFTRandomDraw.sol``` contract immutable state variables can be declares as constants, because they are known on compile time and not set in constructor.
 
@@ -38,4 +38,17 @@ index 668bc56..d53020b 100644
 +    uint256 constant WEEK_IN_SECONDS = (3600 * 24 * 7);
      // @dev about 30 days in a month
 -    uint256 immutable MONTH_IN_SECONDS = (3600 * 24 * 7) * 30;
+```
+
+# [Q-04] MOVE MODIFIER TO [MODIFIERS](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/ownable/OwnableUpgradeable.sol#L31-L33) SECTION
+
+main/src/ownable/OwnableUpgradeable.sol: [24](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/ownable/OwnableUpgradeable.sol#L24)
+
+# [Q-05] TYPO IN FUNCTION COMMENT
+
+main/src/VRFNFTRandomDraw.sol: [294](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L294) 
+
+```diff
+-        // Transfer token to the winter.
++        // Transfer token to the winner.
 ```
