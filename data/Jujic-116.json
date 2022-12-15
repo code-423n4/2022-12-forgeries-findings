@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "Jujic",
+  "risk": "2",
+  "title": "Use safeTransferFrom() instead of transferFrom() for erc721 transfers ",
+  "issueId": 116,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/116"
+}
