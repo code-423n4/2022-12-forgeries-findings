@@ -1,14 +1,15 @@
 - [Low](#low)
     - [**1. The owner can remove the prize**](#1-the-owner-can-remove-the-prize)
-    - [**2. Timestamp dependence**](#2-timestamp-dependence)
-    - [**3. Contracts without GAP can lead a upgrade disaster**](#3-contracts-without-gap-can-lead-a-upgrade-disaster)
-    - [**4. Incorrect logic according to error messages**](#4-incorrect-logic-according-to-error-messages)
+    - [**2. Lack of whitelist**](#2-lack-of-whitelist)
+    - [**3. Timestamp dependence**](#3-timestamp-dependence)
+    - [**4. Contracts without GAP can lead a upgrade disaster**](#4-contracts-without-gap-can-lead-a-upgrade-disaster)
+    - [**5. Incorrect logic according to error messages**](#5-incorrect-logic-according-to-error-messages)
 - [Non critical](#non-critical)
-    - [**5. Use abstract for base contracts**](#5-use-abstract-for-base-contracts)
-    - [**6. Typo error**](#6-typo-error)
-    - [**7. Outdated compiler**](#7-outdated-compiler)
-    - [**8. Improve NatSpec**](#8-improve-natspec)
-    - [**9. Use solidity literals instead of math**](#9-use-solidity-literals-instead-of-math)
+    - [**6. Use abstract for base contracts**](#6-use-abstract-for-base-contracts)
+    - [**7. Typo error**](#7-typo-error)
+    - [**8. Outdated compiler**](#8-outdated-compiler)
+    - [**9. Improve NatSpec**](#9-improve-natspec)
+    - [**10. Use solidity literals instead of math**](#10-use-solidity-literals-instead-of-math)
 
 # Low
 
@@ -21,7 +22,11 @@ The design of the contract allows it to be raffled again, or even for the admin 
 - [VRFNFTRandomDraw.sol:277](https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L277)
 - [VRFNFTRandomDraw.sol:306](https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L306)
 
-## **2. Timestamp dependence**
+## **2. Lack of whitelist**
+
+There is no token whitelist, so anyone can create an NFT token that they later destroy, or change ownership at the will of the contract owner. So it can be used to force people to buy a certain token (`settings.drawingToken`) and receive nothing in return.
+
+## **3. Timestamp dependence**
 
 There are three main considerations when using a timestamp to execute a critical function in a contract, especially when actions involve fund transfer.
 
@@ -42,7 +47,7 @@ There are three main considerations when using a timestamp to execute a critical
 - [VRFNFTRandomDraw.sol:306](https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L306)
 - [VRFNFTRandomDraw.sol:204](https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L204)
 
-## **3. Contracts without GAP can lead a upgrade disaster**
+## **4. Contracts without GAP can lead a upgrade disaster**
 
 Some contracts do not implement good upgradeable logic.
 Upgrading a contract will need a `__gap` storage in order to avoid storage collisions.
@@ -66,7 +71,7 @@ For example, the contract `Version` or `VRFConsumerBaseV2` are inherited by upgr
 
 - Add `uint256[50] private __gap;` to all upgradable contracts.
 
-## **4. Incorrect logic according to error messages**
+## **5. Incorrect logic according to error messages**
 
 The error messages indicate that it has to be greater than, but in the case of equals, it would not fail. It is recommended to correct the error message, or the logic.
 
@@ -90,7 +95,7 @@ The error messages indicate that it has to be greater than, but in the case of e
 
 # Non critical
 
-## **5. Use `abstract` for base contracts**
+## **6. Use `abstract` for base contracts**
 
 `abstract` contracts are contracts that have at least one function without its implementation. **An instance of an abstract cannot be created.**
 
@@ -102,7 +107,7 @@ The error messages indicate that it has to be greater than, but in the case of e
 
 - [Version.sol:4](https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/utils/Version.sol#L4)
 
-## **6. Typo error**
+## **7. Typo error**
 
 There is a typo error in the following line:
 
@@ -114,7 +119,7 @@ It must be `winner`.
 
 - [VRFNFTRandomDraw.sol:294](https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L294)
 
-## **7. Outdated compiler**
+## **8. Outdated compiler**
 
 The pragma version used is:
 
@@ -130,7 +135,7 @@ The minimum required version must be [0.8.17](https://github.com/ethereum/solidi
 
 Apart from these, there are several minor bug fixes and improvements.
 
-## **8. Improve NatSpec**
+## **9. Improve NatSpec**
 
 Solidity contracts can use a special form of comments to provide rich documentation for functions, return variables and more. This special form is named the Ethereum Natural Language Specification Format (NatSpec).
 
@@ -161,7 +166,7 @@ It was detected that some methods doesn't added the `return` documentation, like
 
 - https://docs.soliditylang.org/en/develop/natspec-format.html
 
-## **9. Use solidity literals instead of math**
+## **10. Use solidity literals instead of math**
 
 Suffixes like `seconds`, `minutes`, `hours`, `days` and `weeks` after literal numbers can be used to specify units of time where seconds are the base unit and units are considered naively in the following way:
 
