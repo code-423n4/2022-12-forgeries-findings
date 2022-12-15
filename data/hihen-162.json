@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "hihen",
+  "risk": "2",
+  "title": "The owner may interrupt the contest before recoverTimelock",
+  "issueId": 162,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/162"
+}
