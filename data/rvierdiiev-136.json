@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "rvierdiiev",
+  "risk": "2",
+  "title": "After lastResortTimelockOwnerClaimNFT is called function hasUserWon will still show that user is winner",
+  "issueId": 136,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/136"
+}
