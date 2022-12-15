@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "Apocalypto",
+  "risk": "2",
+  "title": "Owner (admin) is able to silently redraw until selecting winner he/she wants",
+  "issueId": 176,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/176"
+}
