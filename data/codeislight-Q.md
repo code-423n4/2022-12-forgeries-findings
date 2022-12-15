@@ -1,1 +1,2 @@
 - VRFNFTRandomDraw.initialize() lacks checking the existential of drawingTokenStartId and drawingTokenEndId, it is suggested that a staticCall to be made and check if it successed within a try catch block and check the returned value is not equal to zero address in the case of irregular contracts that don't revert on non-existential tokenIds.
+- VRFNFTRandomDrawFactory.constructor() checking for zero address is not sufficient since it could be an EOA, I suggest ensuring the address code size is greater than zero. 
