@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "poirots",
+  "risk": "2",
+  "title": "Misconfigured settings could lead to unusable raffles due to bad months in seconds definition",
+  "issueId": 150,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/150"
+}
