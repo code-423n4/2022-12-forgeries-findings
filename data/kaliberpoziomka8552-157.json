@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "kaliberpoziomka8552",
+  "risk": "2",
+  "title": "Incorrect value of immutable state variable `MONTH_IN_SECONDS`",
+  "issueId": 157,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/157"
+}
