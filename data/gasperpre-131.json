@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "gasperpre",
+  "risk": "2",
+  "title": "Drawing with invalid `subscriptionId` is useless",
+  "issueId": 131,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/131"
+}
