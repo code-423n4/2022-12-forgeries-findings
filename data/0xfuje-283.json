@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "0xfuje",
+  "risk": "3",
+  "title": "Malicious drawingToken can make bad actor claim the raffle NFT",
+  "issueId": 283,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/283"
+}
