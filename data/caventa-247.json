@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "caventa",
+  "risk": "3",
+  "title": "The raffle could be slightly unfair as the owner of NFT ID which is closer to drawingTokenStartId could have more chance to win",
+  "issueId": 247,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/247"
+}
