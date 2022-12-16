@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "imare",
+  "risk": "2",
+  "title": "The NFT can be transferred to the owner immediately after ``startDraw()``",
+  "issueId": 282,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/282"
+}
