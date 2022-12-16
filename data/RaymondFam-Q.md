@@ -79,7 +79,7 @@ Logs and events in Solidity are an important part of smart contract development 
 [File: VRFNFTRandomDrawFactory.sol#L33](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDrawFactory.sol#L33)
 
 ```
-33:        emit SetupFactory();
+        emit SetupFactory();
 ```
 ## Incorrect Comment
 The comment `// Only can be called on first drawing` is denoted in the code block of `startDraw()` in `VRFNFTRandomDraw.sol`:
@@ -94,6 +94,8 @@ The comment `// Only can be called on first drawing` is denoted in the code bloc
 ```
 However, the identical if block is also called when [`_requestRoll()`](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L144-L146) is internally invoked both from `startDraw()` and `redraw()`.
 
+If this comment pertains to `startDraw()`, it should be grouped with the function NatSpec to avoid confusion.
+
 ## Lines too long
 Lines in source code are typically limited to 80 characters, but it’s reasonable to stretch beyond this limit when need be as monitor screens theses days are comparatively larger. Considering the files will most likely reside in GitHub that will have a scroll bar automatically kick in when the length is over 164 characters, all code lines and comments should be split when/before hitting this length. Keep line width to max 120 characters for better readability where possible.
 
@@ -102,3 +104,42 @@ Here is an instance entailed:
 [File: IVRFNFTRandomDraw.sol#L64](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/interfaces/IVRFNFTRandomDraw.sol#L64)
 
 Note: This particular commented line will also need to be trimmed with its phrase, `in case random number = 0` repeatedly nested in parenthesis.
+
+## Immutable variables should be parameterized in the constructor
+Consider assigning immutable variables in the constructor via parameter inputs instead of directly assigning them with literal values. If the latter approach is preferred, consider declaring them as constants.
+
+Additionally, consider adopting a standardized naming pattern on these immutable variables that are partly capitalized and partly uncapitalized.  
+
+Here are the instances entailed:
+
+[File: VRFNFTRandomDraw.sol#L22-L33](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L22-L33)
+
+```
+    uint32 immutable callbackGasLimit = 200_000;
+    /// @notice Chainlink request confirmations, left at the default
+    uint16 immutable minimumRequestConfirmations = 3;
+    /// @notice Number of words requested in a drawing
+    uint16 immutable wordsRequested = 1;
+
+    /// @dev 60 seconds in a min, 60 mins in an hour
+    uint256 immutable HOUR_IN_SECONDS = 60 * 60;
+    /// @dev 24 hours in a day 7 days in a week
+    uint256 immutable WEEK_IN_SECONDS = (3600 * 24 * 7);
+    // @dev about 30 days in a month
+    uint256 immutable MONTH_IN_SECONDS = (3600 * 24 * 7) * 30;
+```
+## `delete` implication on associated if block 
+In `redraw()` of `VRFNFTRandomDraw.sol`, the `delete` code line resets all variables of the struct, `request` to their default respective values including `request.hasChosenRandonNumber == false`. For this reason, the second if block of `_requestRoll()` may be removed since the first condition is going to be always false when internally called by `startDraw()` and `redraw()`.
+
+[File: VRFNFTRandomDraw.sol#L149-L156](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L149-L156)
+
+```diff
+-        if (
+-            request.hasChosenRandomNumber &&
+-            // Draw timelock not yet used
+-            request.drawTimelock != 0 &&
+-            request.drawTimelock > block.timestamp
+-        ) {
+-            revert STILL_IN_WAITING_PERIOD_BEFORE_REDRAWING();
+-        }
+```
