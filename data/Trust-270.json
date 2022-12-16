@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "Trust",
+  "risk": "2",
+  "title": "Draw can be configured without uncancellable-redraw mechanism",
+  "issueId": 270,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/270"
+}
