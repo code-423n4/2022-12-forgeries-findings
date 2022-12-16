@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "hansfriese",
+  "risk": "2",
+  "title": "In `VRFNFTRandomDraw.sol`, NFT ownership should be checked again after changing the contract owner.",
+  "issueId": 188,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/188"
+}
