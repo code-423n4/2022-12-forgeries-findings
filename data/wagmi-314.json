@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "wagmi",
+  "risk": "",
+  "title": "Wrong value of MONTH_IN_SECONDS could make it impossible to recover NFT in 7 years",
+  "issueId": 314,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/314"
+}
