@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "hansfriese",
+  "risk": "3",
+  "title": "Raffle contracts should be verified if they are actually created by the legitimate factory",
+  "issueId": 190,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/190"
+}
