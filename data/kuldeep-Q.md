@@ -1,4 +1,4 @@
-# Low/Non-critical
+# Low/Non-critical 1
 `if conditions` in the `_requestRoll` method will always be false. They never revert in any situation.
 
 ## Explanation
@@ -39,6 +39,15 @@ Let us examine:
 ## Mitigation
 Remove both conditions on the `_requestRoll` method at least for now as they serve no purpose. When all tests are run after removing these conditions, still all test cases are successful with some less gas usage.
 
+
+# Low/Non-critical 2
+As per the requirement, recoverTimeLock needs to be at least 1 week. Although logic forces it to be more than 1 week always.
+
+## Explanation
+This condition check [here](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L90) will revert if the `recoverTimelock` value is 1 week exactly due to `less than` in the check.
+
+## Mitigation
+The condition should be updated as `_settings.recoverTimelock <= block.timestamp + WEEK_IN_SECONDS` to allow users to set recoverTimelock exactly 1 week.
 
 # Informational 1
 Typo [here](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L294). It should be `winner` instead of `winter`.
