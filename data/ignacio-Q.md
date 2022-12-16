@@ -1,5 +1,5 @@
 # The initialize function that initializes important contract state can be called by anyone.
-
+initialize() function can be called anybody when the contract is not initialized. 
 Occurences:
 https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L75
 
