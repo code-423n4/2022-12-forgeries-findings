@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "BAHOZ",
+  "risk": "3",
+  "title": "Low value for minimumRequestConfirmations can cause issues in chains with frequent chain reorgs",
+  "issueId": 281,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/281"
+}
