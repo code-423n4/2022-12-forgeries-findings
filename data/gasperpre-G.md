@@ -1,5 +1,5 @@
-### Gas inefficiency 1
-There are two cases in the codebase where `msg.sender` is being stored into memory. Caching `msg.sender` uses more gass than using it directly. An `MSTORE` costs 3 gas and an `MLOAD` consts 3 gas, where as `CALLER` (`msg.sender`) costs just 2 gas.
+### Caching `msg.sender` uses more gas
+There are two cases in the codebase where `msg.sender` is being stored into memory. Caching `msg.sender` uses more gass than using it directly. An `MSTORE` costs 3 gas and an `MLOAD` costs 3 gas, where as `CALLER` (`msg.sender`) costs just 2 gas.
 
 ### Recommendation
 Remove the lines where `msg.sender` is being stored to memory and use `msg.sender` where you need the value instead.
