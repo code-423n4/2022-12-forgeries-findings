@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "obront",
+  "risk": "2",
+  "title": "Randomness may not distribute winners fairly among token ids",
+  "issueId": 211,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/211"
+}
