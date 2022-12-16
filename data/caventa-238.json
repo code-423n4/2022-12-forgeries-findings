@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "caventa",
+  "risk": "2",
+  "title": "VRFNFTRandomDraw could be inapplicable to some of the NFT contract (drawingToken) that does not have minted NFT Ids which are in sequential order",
+  "issueId": 238,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/238"
+}
