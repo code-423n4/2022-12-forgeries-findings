@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "0xNazgul",
+  "risk": "2",
+  "title": "[NAZ-M1] `fulfillRandomWords()` Must Not Revert",
+  "issueId": 287,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/287"
+}
