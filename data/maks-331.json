@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "maks",
+  "risk": "",
+  "title": "Owner can potentially prevent winner from claiming by starting draw after recover timelock and then calling lastResortTimelockOwnerClaimNFT",
+  "issueId": 331,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/331"
+}
