@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "chaduke",
+  "risk": "",
+  "title": "A compromised owner of VRFNFTRandomDraw can claim the NFT to another accomplice addresss",
+  "issueId": 291,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/291"
+}
