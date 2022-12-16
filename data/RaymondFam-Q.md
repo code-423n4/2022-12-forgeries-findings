@@ -163,11 +163,18 @@ To avoid human error while making the assignment more verbose and distinctive, t
 ```
     /// @dev 60 seconds in a min, 60 mins in an hour
 -    uint256 immutable HOUR_IN_SECONDS = 60 * 60;
-+    uint256 immutable HOUR = 1 hours; // or 60 minutes
++    uint256 immutable HOUR_IN_SECONDS = 1 hours; // or 60 minutes
     /// @dev 24 hours in a day 7 days in a week
 -    uint256 immutable WEEK_IN_SECONDS = (3600 * 24 * 7);
-+    uint256 immutable WEEK = 1 weeks; // or 7 days
++    uint256 immutable WEEK_IN_SECONDS = 1 weeks; // or 7 days
     // @dev about 30 days in a month
 -    uint256 immutable MONTH_IN_SECONDS = (3600 * 24 * 7) * 30;
-+    uint256 immutable MONTH = 30 days;
++    uint256 immutable MONTH_IN_SECONDS = 30 days;
 ```
+Rename the variables to better carry their implicit meaning like AN_HOUR, A_WEEK, and A_MONTH where deemed fit.
+
+## Redrawing the same winner
+The contract logic could not prevent picking the same inactive winner again when redraw() is called, leading to another round of waiting. Consider increasing the lower limit of the [drawing token range of 2](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L114) to something more practical like at least 5 or 10 to minimize the odds of bumping into this occurrence.
+
+## Checks should be as early as possible
+The owner could have called `redraw()` of `VRFNFTRandomDraw.sol` right after the winner had claimed the NFT unknowingly or accidentally. For this reason, the second [if block](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L215-L221) should be executed prior to invoking `_requestRoll()`. This will avoid a sizable amount of gas wastage pertaining to reverting an entire function logic of `_requestRoll()`.    
