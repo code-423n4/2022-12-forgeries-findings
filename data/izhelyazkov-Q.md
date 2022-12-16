@@ -17,3 +17,5 @@ leaving the following functions in `VRFNFTRandomDraw.sol` uncallable:
 Recommended Mitigation Steps
 
 Either reimplement the function to disable `renounceOwnership` or clearly specify if it is part of the contract design.
+
+There is no support of non-enumerable NFTs. This should probably be stated somewhere in the contract.
