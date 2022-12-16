@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "rjs",
+  "risk": "",
+  "title": "winnerClaimNFT() does not check if recipient can receive ERC721",
+  "issueId": 356,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/356"
+}
