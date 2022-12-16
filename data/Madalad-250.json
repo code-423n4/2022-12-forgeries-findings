@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "Madalad",
+  "risk": "2",
+  "title": "Missing checks in `initialize` can lead to trapped target NFT",
+  "issueId": 250,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/250"
+}
