@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "btk",
+  "risk": "2",
+  "title": "Admin can withdraw the NFT before the winner timelock ends",
+  "issueId": 246,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/246"
+}
