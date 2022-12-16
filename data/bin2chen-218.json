@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "bin2chen",
+  "risk": "2",
+  "title": "lastResortTimelockOwnerClaimNFT() can retrieve the token although drawing is in progress",
+  "issueId": 218,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/218"
+}
