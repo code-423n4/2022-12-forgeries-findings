@@ -9,7 +9,7 @@ https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDrawFa
 
 
 
-[G-17] PUBLIC FUNCTIONS NOT CALLED BY THE CONTRACT SHOULD BE DECLARED EXTERNAL INSTEAD
+[G-02] PUBLIC FUNCTIONS NOT CALLED BY THE CONTRACT SHOULD BE DECLARED EXTERNAL INSTEAD
 
 Contracts are allowed to override their parents’ functions and change the visibility from external to public and can save gas by doing so.
 
