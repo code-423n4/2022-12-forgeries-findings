@@ -81,3 +81,24 @@ Logs and events in Solidity are an important part of smart contract development 
 ```
 33:        emit SetupFactory();
 ```
+## Incorrect Comment
+The comment `// Only can be called on first drawing` is denoted in the code block of `startDraw()` in `VRFNFTRandomDraw.sol`:
+
+[File: VRFNFTRandomDraw.sol#L174-L177](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L174-L177)
+
+```
+        // Only can be called on first drawing
+        if (request.currentChainlinkRequestId != 0) {
+            revert REQUEST_IN_FLIGHT();
+        }
+```
+However, the identical if block is also called when [`_requestRoll()`](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L144-L146) is internally invoked both from `startDraw()` and `redraw()`.
+
+## Lines too long
+Lines in source code are typically limited to 80 characters, but it’s reasonable to stretch beyond this limit when need be as monitor screens theses days are comparatively larger. Considering the files will most likely reside in GitHub that will have a scroll bar automatically kick in when the length is over 164 characters, all code lines and comments should be split when/before hitting this length. Keep line width to max 120 characters for better readability where possible.
+
+Here is an instance entailed:
+
+[File: IVRFNFTRandomDraw.sol#L64](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/interfaces/IVRFNFTRandomDraw.sol#L64)
+
+Note: This particular commented line will also need to be trimmed with its phrase, `in case random number = 0` repeatedly nested in parenthesis.
