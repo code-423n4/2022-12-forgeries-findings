@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "obront",
+  "risk": "2",
+  "title": "Miners can reorg the chain to reroll VRF's response",
+  "issueId": 207,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/207"
+}
