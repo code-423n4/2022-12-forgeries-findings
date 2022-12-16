@@ -201,7 +201,7 @@ Several events inside `OwnableUpgradeable` can use `msg.sender` as all calls are
 | **DIFF** |                 |        |        |        |         |
 | Deployment Cost                               | Deployment Size |       |        |       |         |
 | **-6206**                                        | **-31**            |       |        |       |         |
-| cancelOwnershipTransfer                       | 1744            | 1744  | 1744   | 1744  | 1       |
+| cancelOwnershipTransfer                       | **-96**            | 1744  | 1744   | 1744  | 1       |
 | resignOwnership                               | 9121            | 9121  | 9121   | 9121  | 1       |
 | safeTransferOwnership                         | 542             | 19278 | 25191  | 26191 | 4       |
 | transferOwnership                             | 412             | 3383  | 4431   | 5308  | 3       |
