@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "hansfriese",
+  "risk": "2",
+  "title": "Token ownership check during the raffle initialization is meaningless",
+  "issueId": 192,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/192"
+}
