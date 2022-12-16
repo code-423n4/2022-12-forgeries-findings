@@ -45,13 +45,6 @@ function initialize(...) public initializer {
 
     try
         IERC721EnumerableUpgradeable(_settings.drawingToken).ownerOf(
-            _settings.drawingTokenStartId
-        )
-    {} catch {
-        revert DRAWING_TOKEN_RANGE_INVALID();
-    }
-    try
-        IERC721EnumerableUpgradeable(_settings.drawingToken).ownerOf(
             _settings.drawingTokenEndId - 1
         )
     {} catch {
