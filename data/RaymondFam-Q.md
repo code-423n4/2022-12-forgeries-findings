@@ -143,3 +143,31 @@ In `redraw()` of `VRFNFTRandomDraw.sol`, the `delete` code line resets all varia
 -            revert STILL_IN_WAITING_PERIOD_BEFORE_REDRAWING();
 -        }
 ```
+## Time units
+According to:
+
+https://docs.soliditylang.org/en/v0.8.14/units-and-global-variables.html
+
+suffixes like `seconds`, `minutes`, `hours`, `days` and `weeks` after literal numbers can be used to specify units of time where seconds are the base unit and units are considered naively in the following way:
+
+1 == 1 seconds
+1 minutes == 60 seconds
+1 hours == 60 minutes
+1 days == 24 hours
+1 weeks == 7 days
+
+To avoid human error while making the assignment more verbose and distinctive, the following variable declarations may be rewritten as:
+
+[File: VRFNFTRandomDraw.sol#L28-L33](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L28-L33)
+
+```
+    /// @dev 60 seconds in a min, 60 mins in an hour
+-    uint256 immutable HOUR_IN_SECONDS = 60 * 60;
++    uint256 immutable HOUR = 1 hours; // or 60 minutes
+    /// @dev 24 hours in a day 7 days in a week
+-    uint256 immutable WEEK_IN_SECONDS = (3600 * 24 * 7);
++    uint256 immutable WEEK = 1 weeks; // or 7 days
+    // @dev about 30 days in a month
+-    uint256 immutable MONTH_IN_SECONDS = (3600 * 24 * 7) * 30;
++    uint256 immutable MONTH = 30 days;
+```
