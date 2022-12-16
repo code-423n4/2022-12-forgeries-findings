@@ -2,7 +2,7 @@
 In total, `1` gas optimization is found.
 
 ## Optimiaztions
-1. use `private constant` for constants instead of `immutable` to save gas
+1. use `private constant` (or `constant`) for constants instead of `immutable` to save gas
 
 _Instance (6)_
 
@@ -28,38 +28,36 @@ uint256 immutable MONTH_IN_SECONDS = (3600 * 24 * 7) * 30;
 
 Before: (with `immutable`)
 ```
-Running 13 tests for test/VRFNFTRandomDraw.t.sol:VRFNFTRandomDrawTest
-[PASS] test_BadDrawingRange() (gas: 277512)
-[PASS] test_CannotRerollInFlight() (gas: 921174)
-[PASS] test_DrawingUserCheck() (gas: 896254)
-[PASS] test_FullDrawing() (gas: 876483)
-[PASS] test_InvalidOptionTime() (gas: 362535)
-[PASS] test_InvalidRecoverTimelock() (gas: 137991)
-[PASS] test_LoserCannotWithdraw() (gas: 2994515)
-[PASS] test_NFTNotApproved() (gas: 794261)
-[PASS] test_NoTokenOwner() (gas: 217155)
-[PASS] test_TokenNotApproved() (gas: 470188)
-[PASS] test_ValidateRequestID() (gas: 880060)
-[PASS] test_Version() (gas: 311094)
-[PASS] test_ZeroTokenContract() (gas: 141411)
-Test result: ok. 13 passed; 0 failed; finished in 3.94ms
+| src/VRFNFTRandomDraw.sol:VRFNFTRandomDraw contract |                 |        |        |        |         |
+|----------------------------------------------------|-----------------|--------|--------|--------|---------|
+| Deployment Cost                                    | Deployment Size |        |        |        |         |
+| 1237526                                            | 6717            |        |        |        |         |
+| Function Name                                      | min             | avg    | median | max    | # calls |
+| contractVersion                                    | 272             | 272    | 272    | 272    | 1       |
+| getRequestDetails                                  | 572             | 572    | 572    | 572    | 3       |
+| hasUserWon                                         | 1764            | 1764   | 1764   | 1764   | 1       |
+| initialize                                         | 43790           | 146546 | 175523 | 192923 | 15      |
+| lastResortTimelockOwnerClaimNFT                    | 381             | 11061  | 11061  | 21741  | 2       |
+| rawFulfillRandomWords                              | 1131            | 38496  | 46390  | 46390  | 6       |
+| redraw                                             | 572             | 28944  | 28944  | 57317  | 2       |
+| startDraw                                          | 482             | 86573  | 96467  | 99775  | 9       |
+| winnerClaimNFT                                     | 422             | 11638  | 2422   | 27624  | 5       |
 ```
 
 After (with `private constant`)
 ```
-Running 13 tests for test/VRFNFTRandomDraw.t.sol:VRFNFTRandomDrawTest
-[PASS] test_BadDrawingRange() (gas: 277512)
-[PASS] test_CannotRerollInFlight() (gas: 921138)
-[PASS] test_DrawingUserCheck() (gas: 896206)
-[PASS] test_FullDrawing() (gas: 876459)
-[PASS] test_InvalidOptionTime() (gas: 362535)
-[PASS] test_InvalidRecoverTimelock() (gas: 137991)
-[PASS] test_LoserCannotWithdraw() (gas: 2994491)
-[PASS] test_NFTNotApproved() (gas: 794243)
-[PASS] test_NoTokenOwner() (gas: 217155)
-[PASS] test_TokenNotApproved() (gas: 470170)
-[PASS] test_ValidateRequestID() (gas: 880036)
-[PASS] test_Version() (gas: 311094)
-[PASS] test_ZeroTokenContract() (gas: 141411)
-Test result: ok. 13 passed; 0 failed; finished in 3.63ms
+| src/VRFNFTRandomDraw.sol:VRFNFTRandomDraw contract |                 |        |        |        |         |
+|----------------------------------------------------|-----------------|--------|--------|--------|---------|
+| Deployment Cost                                    | Deployment Size |        |        |        |         |
+| 1186680                                            | 6341            |        |        |        |         |
+| Function Name                                      | min             | avg    | median | max    | # calls |
+| contractVersion                                    | 272             | 272    | 272    | 272    | 1       |
+| getRequestDetails                                  | 572             | 572    | 572    | 572    | 3       |
+| hasUserWon                                         | 1764            | 1764   | 1764   | 1764   | 1       |
+| initialize                                         | 43790           | 146546 | 175523 | 192923 | 15      |
+| lastResortTimelockOwnerClaimNFT                    | 381             | 11061  | 11061  | 21741  | 2       |
+| rawFulfillRandomWords                              | 1131            | 38491  | 46384  | 46384  | 6       |
+| redraw                                             | 572             | 28937  | 28937  | 57303  | 2       |
+| startDraw                                          | 482             | 86557  | 96449  | 99757  | 9       |
+| winnerClaimNFT                                     | 422             | 11638  | 2422   | 27624  | 5       |
 ```
