@@ -50,7 +50,7 @@ This condition check [here](https://github.com/code-423n4/2022-12-forgeries/blob
 The condition should be updated as `_settings.recoverTimelock <= block.timestamp + WEEK_IN_SECONDS` to allow users to set recoverTimelock exactly 1 week.
 
 # Informational 1
-Typo [here](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L294). It should be `winter` instead of `winner`.
+Typo [here](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L294). It should be `winner` instead of `winter`.
 
 # Informational 2
 Wrong comment [here](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L305).
