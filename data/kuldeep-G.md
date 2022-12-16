@@ -2,7 +2,10 @@
 VRFNFTRandomDraw. fulfillRandomWords: The checked mathematical operation can be unchecked.
 
 ## Explanation
-This [calculation](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L249) can be unchecked as it has already been ensured in [initialize method](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L112) that this `_settings.drawingTokenEndId > _settings.drawingTokenStartId` condition will always hold true.
+
+`uint256 tokenRange = settings.drawingTokenEndId - settings.drawingTokenStartId;`
+
+This above [calculation](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L249) can be unchecked as it has already been ensured in [initialize method](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L112) that this `_settings.drawingTokenEndId > _settings.drawingTokenStartId` condition will always hold true.
 
 Gas usage:
                              | Function Name              | min   | avg    | median | max  | # calls |
@@ -39,6 +42,8 @@ VRFNFTRandomDraw: Use solidity Time Units (hours, weeks) to save gas.
 
 ## Explanation
 Remove [line 29](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L29) and [line 31](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L31). Use `1 hours` instead of `HOUR_IN_SECONDS` in [line 83](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L83). Use `1 weeks` instead of `WEEK_IN_SECONDS` in [line 90](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L90). This saves ~12k gas while deployment.
+
+![Git diff](https://user-images.githubusercontent.com/24249646/208140023-c481d87b-cde7-453a-96e6-d99c2fd703fb.png)
 
 Gas usage:
                             | Deployment cost | Deployment size
