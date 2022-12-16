@@ -22,10 +22,10 @@ For instance, the code block below may be refactored as follows:
 [File: VRFNFTRandomDraw.sol#L173-L198](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L173-L198)
 
 ```diff
-173: -    function startDraw() external onlyOwner returns (uint256) {
+- 173:    function startDraw() external onlyOwner returns (uint256) {
      +    function startDraw() external onlyOwner returns (uint256 _requestId) {
 ...
-197: -        return request.currentChainlinkRequestId;
+- 197:        return request.currentChainlinkRequestId;
      +        _requestId = request.currentChainlinkRequestId;
 ```
 ## Unneeded Cache
@@ -65,8 +65,8 @@ As an example, the instance below may be refactored as follows:
 -        ) {
 +        )) {
 ```
-## Redundant if block
-The following if block of `startDraw()` in `VRFNFTRandomDraw.sol` may be removed considering the identical check is going to be executed when internally calling `_requestRoll()`, to save gas both on contract deployment and function call:
+## Redundant if blocks
+The following if block of `startDraw()` in `VRFNFTRandomDraw.sol` may be removed considering the identical check is going to be executed on [lines 144 - 146](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L144-L146) when internally calling `_requestRoll()`, to save gas both on contract deployment and function call:
 
 [File: VRFNFTRandomDraw.sol#L175-L177](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L175-L177)
 
@@ -92,7 +92,7 @@ In `VRFNFTRandomDraw.sol`, the emitted event is found to be using the `state var
 [File: VRFNFTRandomDraw.sol#L75-L138](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L75-L138)
 
 ```diff
-123: -        emit InitializedDraw(msg.sender, settings);
+- 123:        emit InitializedDraw(msg.sender, settings);
      +        emit InitializedDraw(msg.sender, _settings);
 ```
 ## State Variables Repeatedly Read Should be Cached
@@ -187,3 +187,21 @@ PUSH1 [revert offset]
 JUMPI
 ```
 Disclaimer: There have been several bugs with security implications related to optimizations. For this reason, Solidity compiler optimizations are disabled by default, and it is unclear how many contracts in the wild actually use them. Therefore, it is unclear how well they are being tested and exercised. High-severity security issues due to optimization bugs have occurred in the past . A high-severity bug in the emscripten -generated solc-js compiler used by Truffle and Remix persisted until late 2018. The fix for this bug was not reported in the Solidity CHANGELOG. Another high-severity optimization bug resulting in incorrect bit shift results was patched in Solidity 0.5.6. Please measure the gas savings from optimizations, and carefully weigh them against the possibility of an optimization-related bug. Also, monitor the development and adoption of Solidity compiler optimizations to assess their maturity.
+
+## Unchecked SafeMath saves gas
+"Checked" math, which is default in ^0.8.0 is not free. The compiler will add some overflow checks, somehow similar to those implemented by `SafeMath`. While it is reasonable to expect these checks to be less expensive than the current `SafeMath`, one should keep in mind that these checks will increase the cost of "basic math operation" that were not previously covered. This particularly concerns variable increments in for loops. When no arithmetic overflow/underflow is going to happen, `unchecked { ... }` to use the previous wrapping behavior further saves gas just as in the instance entailed below, as an example:
+
+[File: VRFNFTRandomDraw.sol#L249-L256](https://github.com/code-423n4/2022-12-forgeries/blob/main/src/VRFNFTRandomDraw.sol#L249-L256)
+
+```diff
++ unchecked {
+        uint256 tokenRange = settings.drawingTokenEndId -
+            settings.drawingTokenStartId;
+
+        // Store a number from it here (reduce number here to reduce gas usage)
+        // We know there will only be 1 word sent at this point.
+        request.currentChosenTokenId =
+            (_randomWords[0] % tokenRange) +
+            settings.drawingTokenStartId;
++ }
+```
