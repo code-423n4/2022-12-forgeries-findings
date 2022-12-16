@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "sces60107",
+  "risk": "",
+  "title": "Owners can delay the call to `startDraw` to reject the draw result",
+  "issueId": 300,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/300"
+}
