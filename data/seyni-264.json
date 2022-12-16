@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "seyni",
+  "risk": "2",
+  "title": "`transferFrom` is used instead of `safeTransferFrom` for transfer of ERC721 tokens",
+  "issueId": 264,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/264"
+}
