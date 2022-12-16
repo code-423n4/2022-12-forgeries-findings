@@ -1,0 +1,8 @@
+{
+  "contest": 191,
+  "handle": "BAHOZ",
+  "risk": "2",
+  "title": "There is no check for tokenId interval to confirm if the tokens actually exist",
+  "issueId": 265,
+  "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/265"
+}
