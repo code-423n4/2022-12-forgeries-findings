@@ -1,7 +1,7 @@
 {
   "contest": 191,
   "handle": "deliriusz",
-  "risk": "",
+  "risk": "2",
   "title": "Malicious ChainLink's VRF manager can decide to not whitelist VRFNFTRandomDraw or brick ongoing raffles",
   "issueId": 340,
   "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/340"
