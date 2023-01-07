@@ -1,7 +1,7 @@
 {
   "contest": 191,
   "handle": "subtle77",
-  "risk": "",
+  "risk": "2",
   "title": "Wrong calculation of MONTH_IN_SECONDS",
   "issueId": 358,
   "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/358"
