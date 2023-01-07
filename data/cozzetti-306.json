@@ -1,7 +1,7 @@
 {
   "contest": 191,
   "handle": "cozzetti",
-  "risk": "",
+  "risk": "G",
   "title": "Gas Optimizations",
   "issueId": 306,
   "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/306"
