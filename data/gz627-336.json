@@ -1,7 +1,7 @@
 {
   "contest": 191,
   "handle": "gz627",
-  "risk": "",
+  "risk": "2",
   "title": "State variables should be cleaned/reset in `lastResortTimelockOwnerClaimNFT()` call",
   "issueId": 336,
   "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/336"
