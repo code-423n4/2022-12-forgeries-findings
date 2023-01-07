@@ -1,7 +1,7 @@
 {
   "contest": 191,
   "handle": "deliriusz",
-  "risk": "",
+  "risk": "2",
   "title": "Bad actor can burn `VRFCoordinatorV2` LINK's balance",
   "issueId": 339,
   "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/339"
