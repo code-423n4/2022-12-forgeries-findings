@@ -1,7 +1,7 @@
 {
   "contest": 191,
   "handle": "indijanc",
-  "risk": "",
+  "risk": "3",
   "title": "Attacker can disable contract functionality",
   "issueId": 341,
   "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/341"
