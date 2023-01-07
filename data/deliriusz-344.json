@@ -1,7 +1,7 @@
 {
   "contest": 191,
   "handle": "deliriusz",
-  "risk": "",
+  "risk": "2",
   "title": "DoS after creating 100 raffles under one subscriptionID",
   "issueId": 344,
   "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/344"
