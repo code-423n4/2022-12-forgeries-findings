@@ -1,7 +1,7 @@
 {
   "contest": 191,
   "handle": "gz627",
-  "risk": "",
+  "risk": "3",
   "title": "The parameters in the setting of the draw are in consistent",
   "issueId": 325,
   "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/325"
