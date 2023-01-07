@@ -1,7 +1,7 @@
 {
   "contest": 191,
   "handle": "wagmi",
-  "risk": "",
+  "risk": "2",
   "title": "ERC20 can be mistakenly used instead of ERC721",
   "issueId": 316,
   "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/316"
