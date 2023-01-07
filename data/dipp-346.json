@@ -1,7 +1,7 @@
 {
   "contest": 191,
   "handle": "dipp",
-  "risk": "",
+  "risk": "2",
   "title": "The ```recoverTimelock``` does not sufficiently protect against an admin withdrawing the NFT before a user is able to claim it",
   "issueId": 346,
   "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/346"
