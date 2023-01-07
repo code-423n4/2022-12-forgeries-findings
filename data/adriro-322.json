@@ -1,7 +1,7 @@
 {
   "contest": 191,
   "handle": "adriro",
-  "risk": "",
+  "risk": "2",
   "title": "Function `fulfillRandomWords` in VRFNFTRandomDraw contract must not revert",
   "issueId": 322,
   "issueUrl": "https://github.com/code-423n4/2022-12-forgeries-findings/issues/322"
