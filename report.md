@@ -1,7 +1,7 @@
 ---
 sponsor: "Forgeries"
 slug: "2022-12-forgeries"
-date: "2023-02-22"  
+date: "2023-02-28"  
 title: "Forgeries contest"
 findings: "https://github.com/code-423n4/2022-12-forgeries-findings/issues"
 contest: 191
