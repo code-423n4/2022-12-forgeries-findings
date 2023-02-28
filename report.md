@@ -288,7 +288,7 @@ The root cause is that Chainlink response can arrive up to 24 hours from the mos
 > frontrunning is done in practically every block by MEV bots proving it's practical and easy to do on mainnet, where the protocol is deployed. Owning a meaningful % of the collection is not necessary, as:
 > 1. Even with 1 / 10,000 NFTs, owner is still multiplying their chances which is a breach of fair random.
 > 2. The exploit can be repeated in every single raffle, exponentially multiplying their edge across time. This also highlights that the frontrunning does not have to be work every time (even though it's high %) in order for the exploitation to work.
-> 3. The draw is chosen by ownership of **_settings.drawingToken**, which is a project-provided token which is already likely they have a large amount of. It is unrelated to the BAYC collection / high value NFT being given out.
+> 3. The draw is chosen by ownership of **\_settings.drawingToken**, which is a project-provided token which is already likely they have a large amount of. It is unrelated to the BAYC collection / high value NFT being given out.
 > 4. It is easy to see attacker can easily half the chances of any unwanted recipient to win the raffle - they would have to have the winning ticket in both rounds. Putting the subscriber's boosted win chances aside, it's a clear theft of user's potential high value prize.
 > 
 > > * Require to use an underfunded subscription
@@ -323,7 +323,6 @@ The root cause is that Chainlink response can arrive up to 24 hours from the mos
 
 **[Trust (warden) commented](https://github.com/code-423n4/2022-12-forgeries-findings/issues/272#issuecomment-1379859299):**
 > Regarding your smart observation @gzeon , I think the idea is clearly to make the draw methods decentralized in the future, but owner controlled as a first step. However they were not aware of this exploit, which from day 1 allows to put on a show and drive draw token prices up.
-> 
 
 **[gzeon (judge) increased severity to High and commented](https://github.com/code-423n4/2022-12-forgeries-findings/issues/272#issuecomment-1383501062):**
  > [#359 (comment)](https://github.com/code-423n4/2022-12-forgeries-findings/discussions/359#discussioncomment-4693679)
@@ -401,6 +400,8 @@ Notice that now the NFT can only be claimed after the winner has been drawn. Thi
 **[gzeon (judge) decreased severity to Medium and commented](https://github.com/code-423n4/2022-12-forgeries-findings/issues/88#issuecomment-1383518113):**
  > [#359 (comment)](https://github.com/code-423n4/2022-12-forgeries-findings/discussions/359#discussioncomment-4693679)
 
+**[iainnash (Forgeries) confirmed](https://github.com/code-423n4/2022-12-forgeries-findings/issues/88#issuecomment-1448780927)**
+
 
 ***
 
@@ -430,6 +431,9 @@ Provide direct links to all referenced code in GitHub. Add screenshots, logs, or
 ### Recommended Mitigation Steps
 
 Depending on the desired functionality with respect to the raffle owner, a successful callback to `fulfillRandomWords()` could be a precondition of the admin/owner reclaiming the reward NFT. This would help ensure the owner does not create raffles that they intend will never pay out a reward.
+
+**[iainnash (Forgeries) confirmed](https://github.com/code-423n4/2022-12-forgeries-findings/issues/101#issuecomment-1448782416)**
+
 
 ***
 
