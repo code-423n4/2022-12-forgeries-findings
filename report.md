@@ -117,9 +117,7 @@ The code under review can be found within the [C4 Forgeries contest repository](
 
 # Severity Criteria
 
-C4 assesses the severity of disclosed vulnerabilities according to a methodology based on [OWASP standards](https://owasp.org/www-community/OWASP_Risk_Rating_Methodology).
-
-Vulnerabilities are divided into three primary risk categories: high, medium, and low/non-critical.
+C4 assesses the severity of disclosed vulnerabilities based on three primary risk categories: high, medium, and low/non-critical.
 
 High-level considerations for vulnerabilities span the following key areas when conducting assessments:
 
@@ -128,7 +126,7 @@ High-level considerations for vulnerabilities span the following key areas when 
 - Arithmetic
 - Gas use
 
-Further information regarding the severity criteria referenced throughout the submission review process, please refer to the documentation provided on [the C4 website](https://code4rena.com).
+For more information regarding the severity criteria referenced throughout the submission review process, please refer to the documentation provided on [the C4 website](https://code4rena.com), specifically our section on [Severity Categorization](https://docs.code4rena.com/awarding/judging-criteria/severity-categorization).
 
 # High Risk Findings (2)
 ## [[H-01] Admin does not have to wait to call `lastResortTimelockOwnerClaimNFT()`](https://github.com/code-423n4/2022-12-forgeries-findings/issues/146)
