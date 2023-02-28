@@ -347,7 +347,7 @@ The raffle creator is not required to actually give the NFT away. The NFT that i
 
 ### Proof of Concept
 
-#### Example 1
+**Example 1**
 
 1.  User U creates an NFT collection C
 2.  He buys a BAYC NFT
@@ -355,7 +355,7 @@ The raffle creator is not required to actually give the NFT away. The NFT that i
 4.  Users buy tokens from his collection C
 5.  He then refuses to execute `startDraw` function and rather sells the BAYC NFT
 
-#### Example 2
+**Example 2**
 
 1.  User U creates an NFT collection C
 2.  User U uses an NFT flash loan to borrow a very expensive NFT
@@ -364,7 +364,7 @@ The raffle creator is not required to actually give the NFT away. The NFT that i
 5.  Users see that there is a raffle for a very expensive NFT, so they buy tokens C
 6.  The winner is never drawn, because the creator does not even own the NFT
 
-#### Example 3
+**Example 3**
 
 1.  User U has an NFT X
 2.  He puts X on a sale on some NFT marketplace (which does not require him to lock it in contract)
@@ -827,7 +827,7 @@ As the solidity EVM works with 32 bytes, variables less than 32 bytes should be 
 
 https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/interfaces/IVRFNFTRandomDraw.sol#L59-L68
 
-#### We can use a smaller type for uint256 drawTimelock as it's simply a timestamp. Using uint64 should be safe for 532 years. We save 1 Storage SLOT from 4 SLOTS to 3 SLOTS (~2K gas)
+### We can use a smaller type for uint256 drawTimelock as it's simply a timestamp. Using uint64 should be safe for 532 years. We save 1 Storage SLOT from 4 SLOTS to 3 SLOTS (~2K gas)
 
 ```solidity
 File: /src/interfaces/IVRFNFTRandomDraw.sol
@@ -861,7 +861,7 @@ index 4775288..af1d928 100644
 
 https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/interfaces/IVRFNFTRandomDraw.sol#L71-L90
 
-#### We can save 2 SLOTs here by packing address token with uint64 subscriptionId and also changing the type of  uint256 recoverTimelock which is a timestamp to uint64 which should be safe for more than 500 years (Saves ~4k gas)
+### We can save 2 SLOTs here by packing address token with uint64 subscriptionId and also changing the type of  uint256 recoverTimelock which is a timestamp to uint64 which should be safe for more than 500 years (Saves ~4k gas)
 
 ```solidity
 File: /src/interfaces/IVRFNFTRandomDraw.sol
@@ -926,7 +926,7 @@ Here, the values emitted shouldn’t be read from storage. The existing memory v
 
 https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L75-L138
 
-#### Save 499 gas on average
+### Save 499 gas on average
 
 |        | Min    | Average | Median   | Max   |
 | ------ | --- | ------- | ----- | ----- |
@@ -969,7 +969,7 @@ SLOADs are expensive (100 gas after the 1st one) compared to MLOADs/MSTOREs (3 g
 
 https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L141-L169
 
-#### VRFNFTRandomDraw.sol.\_requestRoll(): We could cache request.drawTimelock instead of calling it twice
+### VRFNFTRandomDraw.sol.\_requestRoll(): We could cache request.drawTimelock instead of calling it twice
 
 ```solidity
 File: /src/VRFNFTRandomDraw.sol
@@ -1018,7 +1018,7 @@ index 668bc56..e235c0b 100644
 
 https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L277-L300
 
-#### VRFNFTRandomDraw.sol.winnerClaimNFT(): settings.token and settings.tokenId should be cached. Also no need to cast settings.token as it's an address already - Saves 62 gas on average
+### VRFNFTRandomDraw.sol.winnerClaimNFT(): settings.token and settings.tokenId should be cached. Also no need to cast settings.token as it's an address already - Saves 62 gas on average
 
 
 |        | Min    | Average | Median   | Max   |
@@ -1084,7 +1084,7 @@ Consider caching the following:
 
 https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L304-L320
 
-#### VRFNFTRandomDraw.sol.lastResortTimelockOwnerClaimNFT(): The results of `owner()` should be cached instead of calling it twice
+### VRFNFTRandomDraw.sol.lastResortTimelockOwnerClaimNFT(): The results of `owner()` should be cached instead of calling it twice
 
 |        | Min    | Average | Median   | Max   |
 | ------ | --- | ------- | ----- | ----- |
@@ -1145,7 +1145,7 @@ Solidity version 0.8+ comes with implicit overflow and underflow checks on unsig
 
 https://github.com/code-423n4/2022-12-forgeries/blob/fc271cf20c05ce857d967728edfb368c58881d85/src/VRFNFTRandomDraw.sol#L112-L115
 
-#### Saves 43 gas on average
+### Saves 43 gas on average
 
 |        | Min    | Average | Median   | Max   |
 | ------ | --- | ------- | ----- | ----- |
